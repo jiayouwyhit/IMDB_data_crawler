@@ -225,8 +225,8 @@ if __name__ =="__main__":
     film_data = getAllFilmIdFromJSON('./data/imdb.json')
     film_data_array = film_data['nodes']
 
-    # for i in range(0, len(film_data_array)):
-    for i in range(0, 1):
+    for i in range(0, len(film_data_array)):
+    # for i in range(0, 1):
         film_id = film_data_array[i]['imdbID']
         film_year = film_data_array[i]['year']
         film_title = film_data_array[i]['title']
