@@ -10,9 +10,9 @@ from bs4 import BeautifulSoup
 
 film_url_header = 'http://www.imdb.com/title/tt'
 actor_url_header = 'http://www.imdb.com/name/nm'
-local_film_img = './data/film_img/'
-local_actor_big_img = './data/actor_big_img/'
-local_actor_small_img = './data/actor_small_img/'
+local_film_img = '../data/film_img/'
+local_actor_big_img = '../data/actor_big_img/'
+local_actor_small_img = '../data/actor_small_img/'
 
 #All the information are stored here
 node_films = [] #all the info of films
@@ -215,7 +215,7 @@ def edgeCharactersTo2dArray():
     return edge_characters_array
 
 if __name__ =="__main__":
-    film_data = getAllFilmIdFromJSON('./data/imdb.json')
+    film_data = getAllFilmIdFromJSON('../data/imdb.json')
     film_data_array = film_data['nodes']
 
     for i in range(0, len(film_data_array)):
@@ -248,24 +248,24 @@ if __name__ =="__main__":
 
     #save the data to JSON file
     print '\n===========================now, let us save the data to JSON file===========\n'
-    storeInfo2JsonFile('./data/node_films.json', node_films)
-    storeInfo2JsonFile('./data/node_actors.json', node_actors)
-    storeInfo2JsonFile('./data/edge_characters.json', edge_characters)
-    storeInfo2JsonFile('./data/imdb_updated.json', film_data)
+    storeInfo2JsonFile('../data/node_films.json', node_films)
+    storeInfo2JsonFile('../data/node_actors.json', node_actors)
+    storeInfo2JsonFile('../data/edge_characters.json', edge_characters)
+    storeInfo2JsonFile('../data/imdb_updated.json', film_data)
 
     print '\n===========================now, let us save the data to csv file===========\n'
     node_films_array = nodeFilmsTo2dArray()
-    writer = csv.writer(open('./data/node_films_array.csv', 'w'), encoding='utf-8') #encoding='utf-8'
+    writer = csv.writer(open('../data/node_films_array.csv', 'w'), encoding='utf-8') #encoding='utf-8'
     for row in node_films_array:
         writer.writerow(row)
 
     node_actors_array = nodeActorsTo2dArray()
-    writer = csv.writer(open('./data/node_actors_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open('../data/node_actors_array.csv', 'w'), encoding='utf-8')
     for row in node_actors_array:
         writer.writerow(row)
 
     edge_characters_array = edgeCharactersTo2dArray()
-    writer = csv.writer(open('./data/edge_characters_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open('../data/edge_characters_array.csv', 'w'), encoding='utf-8')
     for row in edge_characters_array:
         writer.writerow(row)
 
