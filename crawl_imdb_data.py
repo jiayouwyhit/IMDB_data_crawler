@@ -127,6 +127,13 @@ def getAllActorsOfOneFilm(_film_id):
             continue
         #we have not updated this actor's basic information before
         remote_small_img_url = each_actor.find('a').find('img')
+        # print each_actor
+        # print '=====\n\n'
+        # print each_actor.find('a')
+        # print '=====\n\n'
+        # print each_actor.find('a').find('img')
+        # print '=====\n\n'
+
         if remote_small_img_url.has_attr('loadlate'):
             remote_small_img_url = remote_small_img_url['loadlate']
         else:
@@ -218,8 +225,8 @@ if __name__ =="__main__":
     film_data = getAllFilmIdFromJSON('../data/imdb.json')
     film_data_array = film_data['nodes']
 
-    for i in range(0, len(film_data_array)):
-    # for i in range(0, 2):
+    # for i in range(0, len(film_data_array)):
+    for i in range(0, 1):
         film_id = film_data_array[i]['imdbID']
         film_year = film_data_array[i]['year']
         film_title = film_data_array[i]['title']
@@ -241,9 +248,9 @@ if __name__ =="__main__":
         # get the edge between film and actors
         getEdgeBetweenFilmAndCast(film_id)
 
-        print node_films
-        print node_actors
-        print edge_characters
+        # print node_films
+        # print node_actors
+        # print edge_characters
         print '============================finish crawling one film========================\n\n'
 
     #save the data to JSON file
