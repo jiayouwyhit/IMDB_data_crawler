@@ -4,10 +4,10 @@ import urllib
 import string
 import json
 import re
-# import csv
 import time
-import string
+import sys
 import unicodecsv as csv
+# import csv
 from bs4 import BeautifulSoup
 
 film_url_header = 'http://www.imdb.com/title/tt'
@@ -55,7 +55,7 @@ def storeInfo2JsonFile( _file_path, _data):
         f.write(json.dumps(_data))
 
 # ID, Year, Title, rate_point, type, img_url(local)
-def getMovieInfo(_movie_id):
+def getMovieInfo(_movie_id, _section_id):
     print 'crawl film information of #' + _movie_id
     single_movie_info = {}
     single_movie_info['id'] = _movie_id
@@ -76,14 +76,15 @@ def getMovieInfo(_movie_id):
     remote_img_url = page_info.find('img', {'itemprop':'image'})['src']
     single_movie_info['remote_img_url'] = remote_img_url
     local_film_img_url = local_film_img + _movie_id + '.jpg'
-    urllib.urlretrieve(remote_img_url, local_film_img_url)
+    actual_local_film_img_url = local_film_img + str(_section_id) + '/' + _movie_id + '.jpg' #!!!Note: they are different!
+    urllib.urlretrieve(remote_img_url, actual_local_film_img_url)
     single_movie_info['local_img_url'] = local_film_img_url
 
     return single_movie_info
 
 
 #ID, name, gender, date of birth, place, img_url(local),
-def getActorsInfo(_actor_id):
+def getActorsInfo(_actor_id, _section_id):
     # print _actor_id
     single_actor_info = {}
     single_actor_info['id'] = _actor_id
@@ -132,13 +133,14 @@ def getActorsInfo(_actor_id):
     # print remote_big_img_url
 
     local_actor_big_img_url = local_actor_big_img + _actor_id + '.jpg'
-    urllib.urlretrieve(remote_big_img_url, local_actor_big_img_url)
+    actual_local_actor_big_img_url = local_actor_big_img + str(_section_id) + '/' + _actor_id + '.jpg'
+    urllib.urlretrieve(remote_big_img_url, actual_local_actor_big_img_url)
     single_actor_info['remote_big_img_url'] = remote_big_img_url
     single_actor_info['local_big_img_url'] = local_actor_big_img_url
 
     return single_actor_info
 
-def getAllActorsOfOneFilm(_film_id):
+def getAllActorsOfOneFilm(_film_id, _section_id):
     print 'begin to crawl actor information of film #' + _film_id
     film_url = film_url_header + _film_id + '/fullcredits?ref_=tt_cl_sm#cast'
     # detail_page = urllib2.urlopen(film_url).read()
@@ -157,12 +159,6 @@ def getAllActorsOfOneFilm(_film_id):
             continue
         #we have not updated this actor's basic information before
         remote_small_img_url = each_actor.find('a').find('img')
-        # print each_actor
-        # print '=====\n\n'
-        # print each_actor.find('a')
-        # print '=====\n\n'
-        # print each_actor.find('a').find('img')
-        # print '=====\n\n'
 
         if remote_small_img_url.has_attr('loadlate'):
             remote_small_img_url = remote_small_img_url['loadlate']
@@ -170,9 +166,10 @@ def getAllActorsOfOneFilm(_film_id):
             remote_small_img_url = remote_small_img_url['src']
 
         local_small_img_url = local_actor_small_img + actor_id + '.jpg'
-        urllib.urlretrieve(remote_small_img_url, local_small_img_url)
+        actual_local_small_img_url = local_actor_small_img + str(_section_id) + '/' + actor_id + '.jpg'
+        urllib.urlretrieve(remote_small_img_url, actual_local_small_img_url)
 
-        single_actor_info = getActorsInfo(actor_id) #get the remaining info in another page
+        single_actor_info = getActorsInfo(actor_id, _section_id) #get the remaining info in another page
         single_actor_info['remote_small_img_url'] = remote_small_img_url
         single_actor_info['local_small_img_url'] = local_small_img_url
 
@@ -195,7 +192,6 @@ def getEdgeBetweenFilmAndCast(_film_id):
 
     actor_array = page_info.find('table', {'class': 'cast_list'}).find_all('tr', {'class': ['odd', 'even']})  # important!!! find multiple tags beneath a specific tag
     for i in range(0, len(actor_array)):
-        print "film_id: " + _film_id
         edge_obj = {}
         each_actor = actor_array[i].find('td', {'class': 'primary_photo'})
         actor_id = each_actor.find('a')['href']
@@ -206,7 +202,6 @@ def getEdgeBetweenFilmAndCast(_film_id):
 
         edge_obj['film_id'] = _film_id
         edge_obj['actor_id'] = actor_id
-        print "crawling author # " + actor_id
 
         # each_character = re.findall(r'\b\S+\b', each_character, re.M | re.I)
         each_character = re.findall(r'\S+', each_character, re.M | re.I)
@@ -253,19 +248,34 @@ def edgeCharactersTo2dArray():
     return edge_characters_array
 
 if __name__ =="__main__":
-    film_data = getAllFilmIdFromJSON('./data/imdb.json')
+    #check the input arguments
+    section_id = int(sys.argv[1])
+    if isinstance(section_id, int) and (section_id >= 1 and section_id <= 5):
+        print 'program #' + str(section_id)
+    else:
+        print isinstance(section_id, int)
+        print 'You input the wrong section id! '
+        exit(0)
+
+    film_data = getAllFilmIdFromJSON('./data/origin_imdb/imdb.json')
     film_data_array = film_data['nodes']
 
-    for i in range(0, len(film_data_array)):
-    # for i in range(0, 1):
+    max_data_len = len(film_data_array)
+    section_data_len = 1000
+    if section_id == 5:
+        section_data_len = max_data_len - 4000
+    print 'total data length: ' + str(max_data_len) + ', section data length: ' + str(section_data_len)
+    # for i in range((section_id - 1) * 1000, (section_id - 1) * 1000 + section_data_len):
+    for i in range(0, 2):
         film_id = film_data_array[i]['imdbID']
         film_year = film_data_array[i]['year']
         film_title = film_data_array[i]['title']
 
+        print 'section_id: #' + str(section_id) + ' number: #' +str(i)
         print 'film_id: ' + film_id
 
         #get the film information
-        single_film_info = getMovieInfo(film_id)
+        single_film_info = getMovieInfo(film_id, section_id)
         single_film_info['year'] = film_year
         single_film_info['title'] = film_title
         node_films.append(single_film_info)
@@ -274,7 +284,7 @@ if __name__ =="__main__":
         film_data['nodes'][i]['local_img_url'] = single_film_info['local_img_url']
 
         #find actor information
-        getAllActorsOfOneFilm(film_id)
+        getAllActorsOfOneFilm(film_id,section_id)
 
         # get the edge between film and actors
         getEdgeBetweenFilmAndCast(film_id)
@@ -286,24 +296,24 @@ if __name__ =="__main__":
 
     #save the data to JSON file
     print '\n===========================now, let us save the data to JSON file===========\n'
-    storeInfo2JsonFile('./data/node_films.json', node_films)
-    storeInfo2JsonFile('./data/node_actors.json', node_actors)
-    storeInfo2JsonFile('./data/edge_characters.json', edge_characters)
-    storeInfo2JsonFile('./data/imdb_updated.json', film_data)
+    storeInfo2JsonFile('./data/output_imdb/' + str(section_id) + '_node_films.json', node_films)
+    storeInfo2JsonFile('./data/output_imdb/' + str(section_id) + '_node_actors.json', node_actors)
+    storeInfo2JsonFile('./data/output_imdb/' + str(section_id) + '_edge_characters.json', edge_characters)
+    storeInfo2JsonFile('./data/output_imdb/' + str(section_id) + '_imdb_updated.json', film_data)
 
     print '\n===========================now, let us save the data to csv file===========\n'
     node_films_array = nodeFilmsTo2dArray()
-    writer = csv.writer(open('./data/node_films_array.csv', 'w'), encoding='utf-8') #encoding='utf-8'
+    writer = csv.writer(open('./data/output_imdb/' + str(section_id) + '_node_films_array.csv', 'w'), encoding='utf-8') #encoding='utf-8'
     for row in node_films_array:
         writer.writerow(row)
 
     node_actors_array = nodeActorsTo2dArray()
-    writer = csv.writer(open('./data/node_actors_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open('./data/output_imdb/' + str(section_id) + '_node_actors_array.csv', 'w'), encoding='utf-8')
     for row in node_actors_array:
         writer.writerow(row)
 
     edge_characters_array = edgeCharactersTo2dArray()
-    writer = csv.writer(open('./data/edge_characters_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open('./data/output_imdb/' + str(section_id) + '_edge_characters_array.csv', 'w'), encoding='utf-8')
     for row in edge_characters_array:
         writer.writerow(row)
 
