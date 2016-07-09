@@ -35,7 +35,7 @@ def getMovieInfo(_movie_id):
     single_movie_info['id'] = _movie_id
 
     film_url = film_url_header + _movie_id
-    detail_page = urllib2.urlopen(film_url)
+    detail_page = urllib2.urlopen(film_url).read()
     page_info = BeautifulSoup(detail_page, "html.parser")
     single_movie_info['rate_point'] = page_info.find('span',{'itemprop':'ratingValue'}).text
 
@@ -61,7 +61,7 @@ def getActorsInfo(_actor_id):
     single_actor_info['id'] = _actor_id
 
     actor_url = actor_url_header + _actor_id
-    detail_page = urllib2.urlopen(actor_url)
+    detail_page = urllib2.urlopen(actor_url).read()
     page_info = BeautifulSoup(detail_page, 'html.parser')
 
     single_actor_info['name'] = page_info.find('span',{'itemprop':"name"}).get_text()
@@ -112,7 +112,7 @@ def getActorsInfo(_actor_id):
 def getAllActorsOfOneFilm(_film_id):
     print 'begin to crawl actor information of film #' + _film_id
     film_url = film_url_header + _film_id + '/fullcredits?ref_=tt_cl_sm#cast'
-    detail_page = urllib2.urlopen(film_url)
+    detail_page = urllib2.urlopen(film_url).read()
     page_info = BeautifulSoup(detail_page, "html.parser")
 
     actor_array = page_info.find('table', {'class': 'cast_list'}).find_all('tr', {'class': ['odd', 'even']}) #important!!! find multiple tags beneath a specific tag
@@ -159,7 +159,7 @@ def getAllActorsOfOneFilm(_film_id):
 
 def getEdgeBetweenFilmAndCast(_film_id):
     film_url = film_url_header + _film_id + '/fullcredits?ref_=tt_cl_sm#cast'
-    detail_page = urllib2.urlopen(film_url)
+    detail_page = urllib2.urlopen(film_url).read()
     page_info = BeautifulSoup(detail_page, "html.parser")
 
     actor_array = page_info.find('table', {'class': 'cast_list'}).find_all('tr', {'class': ['odd', 'even']})  # important!!! find multiple tags beneath a specific tag
