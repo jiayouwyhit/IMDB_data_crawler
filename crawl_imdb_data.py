@@ -5,6 +5,8 @@ import string
 import json
 import re
 # import csv
+import time
+import string
 import unicodecsv as csv
 from bs4 import BeautifulSoup
 
@@ -18,6 +20,30 @@ local_actor_small_img = './data/actor_small_img/'
 node_films = [] #all the info of films
 node_actors = {} #all the info of actors
 edge_characters = []
+MAX_URL_TRY = 15
+
+
+def urlOpenAndRead2GetPage(_url):
+    try:
+        detail_page = urllib2.urlopen(_url).read()
+    except:
+        print 'Error exists when reading url: ' + _url
+        detail_page = 'ERROR_EXIST'
+    return detail_page
+
+def tryMaxTimesOpenUrl(_film_url):
+    detail_page = 'ERROR_EXIST'
+    counter = 0
+    while counter < MAX_URL_TRY: #check
+        counter = counter + 1
+        detail_page = urlOpenAndRead2GetPage(_film_url)
+        if detail_page == 'ERROR_EXIST':
+            print 'Error Attemption # ' + str(counter)
+            time.sleep(counter * 20)
+        else:
+            return detail_page
+    return detail_page
+
 
 def getAllFilmIdFromJSON(_file_path):
     with open(_file_path) as json_data:
@@ -35,7 +61,9 @@ def getMovieInfo(_movie_id):
     single_movie_info['id'] = _movie_id
 
     film_url = film_url_header + _movie_id
-    detail_page = urllib2.urlopen(film_url).read()
+    # detail_page = urllib2.urlopen(film_url).read()
+    detail_page = tryMaxTimesOpenUrl(film_url)
+
     page_info = BeautifulSoup(detail_page, "html.parser")
     single_movie_info['rate_point'] = page_info.find('span',{'itemprop':'ratingValue'}).text
 
@@ -61,7 +89,8 @@ def getActorsInfo(_actor_id):
     single_actor_info['id'] = _actor_id
 
     actor_url = actor_url_header + _actor_id
-    detail_page = urllib2.urlopen(actor_url).read()
+    # detail_page = urllib2.urlopen(actor_url).read()
+    detail_page = tryMaxTimesOpenUrl(actor_url)
     page_info = BeautifulSoup(detail_page, 'html.parser')
 
     single_actor_info['name'] = page_info.find('span',{'itemprop':"name"}).get_text()
@@ -112,7 +141,8 @@ def getActorsInfo(_actor_id):
 def getAllActorsOfOneFilm(_film_id):
     print 'begin to crawl actor information of film #' + _film_id
     film_url = film_url_header + _film_id + '/fullcredits?ref_=tt_cl_sm#cast'
-    detail_page = urllib2.urlopen(film_url).read()
+    # detail_page = urllib2.urlopen(film_url).read()
+    detail_page = tryMaxTimesOpenUrl(film_url)
     page_info = BeautifulSoup(detail_page, "html.parser")
 
     actor_array = page_info.find('table', {'class': 'cast_list'}).find_all('tr', {'class': ['odd', 'even']}) #important!!! find multiple tags beneath a specific tag
@@ -159,7 +189,8 @@ def getAllActorsOfOneFilm(_film_id):
 
 def getEdgeBetweenFilmAndCast(_film_id):
     film_url = film_url_header + _film_id + '/fullcredits?ref_=tt_cl_sm#cast'
-    detail_page = urllib2.urlopen(film_url).read()
+    # detail_page = urllib2.urlopen(film_url).read()
+    detail_page = tryMaxTimesOpenUrl(film_url)
     page_info = BeautifulSoup(detail_page, "html.parser")
 
     actor_array = page_info.find('table', {'class': 'cast_list'}).find_all('tr', {'class': ['odd', 'even']})  # important!!! find multiple tags beneath a specific tag
