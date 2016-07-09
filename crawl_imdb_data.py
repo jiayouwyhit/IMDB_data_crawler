@@ -249,6 +249,7 @@ def edgeCharactersTo2dArray():
 
 if __name__ =="__main__":
     #check the input arguments
+    print sys.argv
     section_id = int(sys.argv[1])
     if isinstance(section_id, int) and (section_id >= 1 and section_id <= 5):
         print 'program #' + str(section_id)
