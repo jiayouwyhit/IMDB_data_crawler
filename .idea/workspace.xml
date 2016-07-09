@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0f0713-62d4-4999-84a9-a3f3ede46100" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mergeAll.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mergeAll.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clearAll.sh" afterPath="$PROJECT_DIR$/clearAll.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawl_imdb_data.py" afterPath="$PROJECT_DIR$/crawl_imdb_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mergeAll.py" afterPath="$PROJECT_DIR$/mergeAll.py" />
     </list>
     <ignored path="crawling_imdb_data.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,84 +46,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mergeAll.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mergeAll.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mergeAll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="280">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edge_characters_array.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters_array.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edge_characters.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="0" column="1795" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34435" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node_films_array.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films_array.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node_films.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3265" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node_actors_array.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors_array.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node_actors.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="0" column="1314" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="54392" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1_node_actors.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_actors.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="2392" selection-start-line="0" selection-start-column="2392" selection-end-line="0" selection-end-column="2392" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -226,28 +152,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="output_imdb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawling_imdb_data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crawling_imdb_data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="output_imdb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="all" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -767,16 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mergeAll.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters_array.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -787,9 +681,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="0" column="1795" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34435" />
+        <state relative-caret-position="270">
+          <caret line="0" column="2519" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34435" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mergeAll.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
