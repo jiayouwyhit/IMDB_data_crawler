@@ -55,10 +55,13 @@ def edgeCharactersTo2dArray():
         edge_characters_array.append(each_row)
     return edge_characters_array
 
+
+
 if __name__ == "__main__":
     for i in range(0, max_section):
         #film information
-        film_tmp = getAllInfoFromJSON( output_imdb_path + str(i+1) + '_node_films.json')
+        film_tmp1 = getAllInfoFromJSON( output_imdb_path + str(i+1) + '_node_films.json')
+        film_tmp = map(dict, set(tuple(id.items()) for id in film_tmp1)) #there are duplicated values, make the value unique
         node_films.extend(film_tmp)
 
         #actor_information
@@ -70,7 +73,8 @@ if __name__ == "__main__":
                 node_actors[actor_id] = actor_tmp[actor_id]
 
         #edge_characters
-        character_tmp = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_edge_characters.json')
+        character_tmp1 = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_edge_characters.json')
+        character_tmp = map(dict, set(tuple(film_id.items()) for film_id in character_tmp1)) #there are duplicated values, make the value unique
         edge_characters.extend(character_tmp)
 
     #save information to json

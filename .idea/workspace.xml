@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b0f0713-62d4-4999-84a9-a3f3ede46100" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/film_img/all/readme.txt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawl_imdb_data.py" afterPath="$PROJECT_DIR$/crawl_imdb_data.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mergeAll.py" afterPath="$PROJECT_DIR$/mergeAll.py" />
     </list>
     <ignored path="crawling_imdb_data.iws" />
@@ -27,8 +30,8 @@
       <file leaf-file-name="crawl_imdb_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crawl_imdb_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="246" selection-end-column="32" />
+            <state relative-caret-position="164">
+              <caret line="33" column="22" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -49,8 +52,8 @@
       <file leaf-file-name="mergeAll.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mergeAll.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+            <state relative-caret-position="442">
+              <caret line="77" column="45" selection-start-line="77" selection-start-column="45" selection-end-line="77" selection-end-column="45" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -77,8 +80,8 @@
         <option value="$PROJECT_DIR$/runAll.sh" />
         <option value="$PROJECT_DIR$/clearAll.sh" />
         <option value="$PROJECT_DIR$/data/mergeAll.sh" />
-        <option value="$PROJECT_DIR$/crawl_imdb_data.py" />
         <option value="$PROJECT_DIR$/mergeAll.sh" />
+        <option value="$PROJECT_DIR$/crawl_imdb_data.py" />
         <option value="$PROJECT_DIR$/mergeAll.py" />
       </list>
     </option>
@@ -119,6 +122,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -171,7 +175,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,7 +421,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2639485" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -454,21 +457,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/actor_small_img/0000106.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000106.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000148.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/actor_small_img/0000106.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000106.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000148.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0416944.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0515716.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/1279967.jpg" />
@@ -486,62 +477,20 @@
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000183.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0000221.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0001564.jpg" />
-    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0001929.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0001929.jpg" />
     <entry file="file://$PROJECT_DIR$/data/actor_big_img/0002026.jpg" />
-    <entry file="file://$PROJECT_DIR$/data/film_img/0076137.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/film_img/0076137.jpg" />
     <entry file="file://$PROJECT_DIR$/log.txt" />
-    <entry file="file://$PROJECT_DIR$/data/film_img/2/0097576.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_imdb_updated.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_films_array.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/2_imdb_updated.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
-          <caret line="0" column="915" selection-start-line="0" selection-start-column="915" selection-end-line="0" selection-end-column="915" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0427894.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_big_img/2/0000125.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/film_img/2/0097576.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_imdb_updated.json" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_films_array.csv" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/2_imdb_updated.json" />
+    <entry file="file://$PROJECT_DIR$/data/actor_big_img/0427894.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/actor_big_img/2/0000125.jpg" />
     <entry file="file://$PROJECT_DIR$/runAll.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,88 +498,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="15" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/film_img/4/0076137.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/film_img/3/0076137.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/1_node_actors.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="0" column="1728" selection-start-line="0" selection-start-column="1728" selection-end-line="0" selection-end-column="1728" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/film_img/4/0076137.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/film_img/3/0076137.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/1_node_actors.json" />
     <entry file="file://$PROJECT_DIR$/clearAll.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="15" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_small_img/all/0432040.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/actor_small_img/all/0427894.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_films.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="653" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/actor_small_img/all/0432040.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/actor_small_img/all/0427894.jpg" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_films.json" />
     <entry file="file://$PROJECT_DIR$/data/origin_imdb/imdb.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_edge_characters.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="6887" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawl_imdb_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="246" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_actors.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="2392" selection-start-line="0" selection-start-column="2392" selection-end-line="0" selection-end-column="2392" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_edge_characters.json" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/1_node_actors.json" />
     <entry file="file://$PROJECT_DIR$/mergeAll.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -639,58 +531,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films_array.csv">
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films_array.csv" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films.json" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors_array.csv" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors.json" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters_array.csv" />
+    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters.json" />
+    <entry file="file://$PROJECT_DIR$/crawl_imdb_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_films.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3265" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors_array.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/node_actors.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="0" column="1314" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="54392" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters_array.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/output_imdb/all/edge_characters.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="0" column="2519" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="34435" />
-          <folding />
+        <state relative-caret-position="164">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mergeAll.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        <state relative-caret-position="442">
+          <caret line="77" column="45" selection-start-line="77" selection-start-column="45" selection-end-line="77" selection-end-column="45" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
