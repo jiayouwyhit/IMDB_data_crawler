@@ -95,6 +95,7 @@ if __name__ == "__main__":
     storeInfo2JsonFile(output_imdb_path + 'all/node_actors.json', node_actors)
     storeInfo2JsonFile(output_imdb_path + 'all/edge_characters.json', edge_characters)
 
+
     #save information to csv
     node_films_array = nodeFilmsTo2dArray()
     writer = csv.writer(open(output_imdb_path + 'all/node_films_array.csv', 'w'), encoding='utf-8')  # encoding='utf-8'
@@ -110,5 +111,9 @@ if __name__ == "__main__":
     writer = csv.writer(open(output_imdb_path + 'all/edge_characters_array.csv', 'w'), encoding='utf-8')
     for row in edge_characters_array:
         writer.writerow(row)
+
+    print "total films: " + str(len(node_films))
+    print "total actors: " + str(len(node_actors_array))
+    print "total charactor-film edges: " + str(len(edge_characters))
 
     print '===============================Job is done!==========================\n\n'
