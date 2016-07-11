@@ -58,11 +58,18 @@ def edgeCharactersTo2dArray():
 
 
 if __name__ == "__main__":
+    film_id_set = set()
+    edge_characters_id_set = set()
     for i in range(0, max_section):
         #film information
         film_tmp1 = getAllInfoFromJSON( output_imdb_path + str(i+1) + '_node_films.json')
-        film_tmp = map(dict, set(tuple(id.items()) for id in film_tmp1)) #there are duplicated values, make the value unique
-        node_films.extend(film_tmp)
+        # film_tmp = map(dict, set(tuple(id.items()) for id in film_tmp1)) #there are duplicated values, make the value unique
+        # node_films.extend(film_tmp)
+        for j in range(0,len(film_tmp1)):
+            id_tmp = film_tmp1[j]['id']
+            flag  = id_tmp in film_id_set
+            if flag == False:
+                node_films.append(film_tmp1[j])
 
         #actor_information
         actor_tmp = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_node_actors.json')
@@ -74,8 +81,14 @@ if __name__ == "__main__":
 
         #edge_characters
         character_tmp1 = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_edge_characters.json')
-        character_tmp = map(dict, set(tuple(film_id.items()) for film_id in character_tmp1)) #there are duplicated values, make the value unique
-        edge_characters.extend(character_tmp)
+        # character_tmp = map(dict, set(tuple(film_id.items()) for film_id in character_tmp1)) #there are duplicated values, make the value unique
+        # edge_characters.extend(character_tmp)
+        for j in range(0,len(character_tmp1)):
+            edge_character_tmp = character_tmp1[j]['film_id'] + character_tmp1[j]['actor_id']
+            flag  = edge_character_tmp in edge_characters_id_set
+            if flag == False:
+                edge_characters.append(character_tmp1[j])
+        
 
     #save information to json
     storeInfo2JsonFile(output_imdb_path + 'all/node_films.json', node_films)
