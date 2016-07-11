@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b0f0713-62d4-4999-84a9-a3f3ede46100" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/film_img/all/readme.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawl_imdb_data.py" afterPath="$PROJECT_DIR$/crawl_imdb_data.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mergeAll.py" afterPath="$PROJECT_DIR$/mergeAll.py" />
-    </list>
+    <list default="true" id="4b0f0713-62d4-4999-84a9-a3f3ede46100" name="Default" comment="" />
     <ignored path="crawling_imdb_data.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
