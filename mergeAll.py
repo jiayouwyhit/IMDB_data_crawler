@@ -28,6 +28,11 @@ def storeInfo2JsonFile( _file_path, _data):
 def nodeFilmsTo2dArray():
     dim1 = len(node_films)
     node_films_array = []
+    each_row = []
+    for key in node_films[0]:
+        each_row.append(key)
+    node_films_array.append(each_row) #save the keys to the first row
+
     for i in range(0, dim1):
         each_row = []
         for key in node_films[i]:
@@ -38,16 +43,29 @@ def nodeFilmsTo2dArray():
 
 def nodeActorsTo2dArray():
     node_actors_array = []
+    counter = 0
+
     for key1 in node_actors:
+        counter += 1
         each_row = []
+        keys_row = []#store all the keys
         for key2 in node_actors[key1]:
             each_row.append(node_actors[key1][key2])
+            keys_row.append(key2)
+
+        if(counter == 1):
+            node_actors_array.append(keys_row)
         node_actors_array.append(each_row)
     return node_actors_array
 
 def edgeCharactersTo2dArray():
     dim1 = len(edge_characters)
     edge_characters_array = []
+    each_row = []
+    for key in edge_characters[0]:
+        each_row.append(key)
+    edge_characters_array.append(each_row)
+
     for i in range(0, dim1):
         each_row = []
         for key in edge_characters[i]:
@@ -66,28 +84,46 @@ if __name__ == "__main__":
         # film_tmp = map(dict, set(tuple(id.items()) for id in film_tmp1)) #there are duplicated values, make the value unique
         # node_films.extend(film_tmp)
         for j in range(0,len(film_tmp1)):
-            id_tmp = film_tmp1[j]['id']
+            id_tmp = 'tt' + film_tmp1[j]['id']
+            film_tmp1[j]['id'] = id_tmp # add the "tt" flag to the id of film
+
+            film_tmp1[j].pop('type',None) #delete this attribute
+
             flag  = id_tmp in film_id_set
             if flag == False:
                 node_films.append(film_tmp1[j])
+                film_id_set.add(id_tmp) #add the id into set
+
 
         #actor_information
         actor_tmp = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_node_actors.json')
         for actor_id in actor_tmp:
-            if (node_actors.has_key(actor_id)):
-                node_actors[actor_id]['film_list'].extend(actor_tmp[actor_id]['film_list'])
+            id_tmp = 'nm' + actor_id # add "nm" flag to the id of each actor
+            # film_lens = len(actor_tmp[actor_id]['film_list'])
+            # for k in range(0, film_lens):
+            #     actor_tmp[actor_id]['film_list'][k] = 'tt' + actor_tmp[actor_id]['film_list'][k] 
+            # if (node_actors.has_key(id_tmp)):
+            #     node_actors[id_tmp]['film_list'].extend(actor_tmp[actor_id]['film_list'])
+            # else:
+            #     node_actors[id_tmp] = actor_tmp[actor_id]
+            actor_tmp[actor_id].pop('film_list',None)
+            actor_tmp[actor_id].pop('job_title',None)
+            actor_tmp[actor_id]['id'] = id_tmp
+            if (node_actors.has_key(id_tmp)):
+                pass
             else:
-                node_actors[actor_id] = actor_tmp[actor_id]
+                node_actors[id_tmp] = actor_tmp[actor_id]
 
         #edge_characters
         character_tmp1 = getAllInfoFromJSON(output_imdb_path + str(i+1) + '_edge_characters.json')
-        # character_tmp = map(dict, set(tuple(film_id.items()) for film_id in character_tmp1)) #there are duplicated values, make the value unique
-        # edge_characters.extend(character_tmp)
         for j in range(0,len(character_tmp1)):
             edge_character_tmp = character_tmp1[j]['film_id'] + character_tmp1[j]['actor_id']
             flag  = edge_character_tmp in edge_characters_id_set
             if flag == False:
+                character_tmp1[j]['film_id'] = 'tt' + character_tmp1[j]['film_id']
+                character_tmp1[j]['actor_id'] = 'nm' + character_tmp1[j]['actor_id']
                 edge_characters.append(character_tmp1[j])
+                edge_characters_id_set.add(edge_character_tmp)
         
 
     #save information to json
@@ -98,17 +134,17 @@ if __name__ == "__main__":
 
     #save information to csv
     node_films_array = nodeFilmsTo2dArray()
-    writer = csv.writer(open(output_imdb_path + 'all/node_films_array.csv', 'w'), encoding='utf-8')  # encoding='utf-8'
+    writer = csv.writer(open(output_imdb_path + 'all/node_films.csv', 'w'), encoding='utf-8')  # encoding='utf-8'
     for row in node_films_array:
         writer.writerow(row)
 
     node_actors_array = nodeActorsTo2dArray()
-    writer = csv.writer(open(output_imdb_path + 'all/node_actors_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open(output_imdb_path + 'all/node_actors.csv', 'w'), encoding='utf-8')
     for row in node_actors_array:
         writer.writerow(row)
 
     edge_characters_array = edgeCharactersTo2dArray()
-    writer = csv.writer(open(output_imdb_path + 'all/edge_characters_array.csv', 'w'), encoding='utf-8')
+    writer = csv.writer(open(output_imdb_path + 'all/edge_characters.csv', 'w'), encoding='utf-8')
     for row in edge_characters_array:
         writer.writerow(row)
 

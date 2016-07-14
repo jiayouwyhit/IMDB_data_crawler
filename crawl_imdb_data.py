@@ -244,6 +244,7 @@ def edgeCharactersTo2dArray():
         for key in edge_characters[i]:
             each_row.append(edge_characters[i][key])
         edge_characters_array.append(each_row)
+
     return edge_characters_array
 
 if __name__ =="__main__":
@@ -266,7 +267,7 @@ if __name__ =="__main__":
         section_data_len = max_data_len - 4000
     print 'total data length: ' + str(max_data_len) + ', section data length: ' + str(section_data_len)
     for i in range((section_id - 1) * 1000, (section_id - 1) * 1000 + section_data_len):
-    #for i in range(0, 2):
+    # for i in range(0, 2):
         film_id = film_data_array[i]['imdbID']
         film_year = film_data_array[i]['year']
         film_title = film_data_array[i]['title']
@@ -289,6 +290,9 @@ if __name__ =="__main__":
         # get the edge between film and actors
         getEdgeBetweenFilmAndCast(film_id)
 
+        # print node_films
+        # print node_actors
+        # print edge_characters
         print '============================finish crawling one film========================\n\n'
 
     #save the data to JSON file
