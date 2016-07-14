@@ -28,50 +28,77 @@ def storeInfo2JsonFile( _file_path, _data):
 def nodeFilmsTo2dArray():
     dim1 = len(node_films)
     node_films_array = []
-    each_row = []
-    for key in node_films[0]:
-        each_row.append(key)
-    node_films_array.append(each_row) #save the keys to the first row
 
+    keys = ['id','title','year','rate_point','local_img_url','remote_img_url']
+    node_films_array.append(keys);
     for i in range(0, dim1):
         each_row = []
-        for key in node_films[i]:
-            each_row.append(node_films[i][key])
+        for j in range(0, len(keys)):
+            each_row.append(node_films[i][keys[j]])
         node_films_array.append(each_row)
-
     return node_films_array
+
+    # each_row = []
+    # for key in node_films[0]:
+    #     each_row.append(key)
+    # node_films_array.append(each_row) #save the keys to the first row
+    #
+    # for i in range(0, dim1):
+    #     each_row = []
+    #     for key in node_films[i]:
+    #         each_row.append(node_films[i][key])
+    #     node_films_array.append(each_row)
+    # return node_films_array
 
 def nodeActorsTo2dArray():
     node_actors_array = []
-    counter = 0
 
+    keys = ['id','name','gender', 'date_of_birth', 'birth_place','remote_small_img_url','remote_big_img_url','local_small_img_url','local_big_img_url']
+    node_actors_array.append(keys)
     for key1 in node_actors:
-        counter += 1
         each_row = []
-        keys_row = []#store all the keys
-        for key2 in node_actors[key1]:
-            each_row.append(node_actors[key1][key2])
-            keys_row.append(key2)
-
-        if(counter == 1):
-            node_actors_array.append(keys_row)
+        for i in range(0, len(keys)):
+            each_row.append(node_actors[key1][keys[i]])
         node_actors_array.append(each_row)
     return node_actors_array
+
+    # counter = 0
+    # for key1 in node_actors:
+    #     counter += 1
+    #     each_row = []
+    #     keys_row = []#store all the keys
+    #     for key2 in node_actors[key1]:
+    #         each_row.append(node_actors[key1][key2])
+    #         keys_row.append(key2)
+    #
+    #     if(counter == 1):
+    #         node_actors_array.append(keys_row)
+    #     node_actors_array.append(each_row)
+    # return node_actors_array
 
 def edgeCharactersTo2dArray():
     dim1 = len(edge_characters)
     edge_characters_array = []
-    each_row = []
-    for key in edge_characters[0]:
-        each_row.append(key)
-    edge_characters_array.append(each_row)
 
+    keys = ['actor_id', 'film_id', 'character']
     for i in range(0, dim1):
         each_row = []
-        for key in edge_characters[i]:
-            each_row.append(edge_characters[i][key])
+        for j in range(0,len(keys)):
+            each_row.append(edge_characters[i][keys[j]])
         edge_characters_array.append(each_row)
     return edge_characters_array
+
+    # each_row = []
+    # for key in edge_characters[0]:
+    #     each_row.append(key)
+    # edge_characters_array.append(each_row)
+    #
+    # for i in range(0, dim1):
+    #     each_row = []
+    #     for key in edge_characters[i]:
+    #         each_row.append(edge_characters[i][key])
+    #     edge_characters_array.append(each_row)
+    # return edge_characters_array
 
 
 
